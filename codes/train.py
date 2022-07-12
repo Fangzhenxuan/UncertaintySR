@@ -18,6 +18,7 @@ from models import create_model
 import socket
 import getpass
 
+
 def init_dist(backend='nccl', **kwargs):
     ''' initialization for distributed training'''
     # if mp.get_start_method(allow_none=True) is None:
@@ -30,13 +31,11 @@ def init_dist(backend='nccl', **kwargs):
 
 
 def main():
-    ###### MANet train ######
+    ###### KULNet train ######
     #### setup options
     parser = argparse.ArgumentParser()
-    parser.add_argument('--opt', type=str, default='./options/train/train_stage.yml',
-                        help='Path to option YMAL file of MANet.')
-    parser.add_argument('--launcher', choices=['none', 'pytorch'], default='none',
-                        help='job launcher')
+    parser.add_argument('--opt', type=str, default='./options/train/train_stage.yml', help='Path to option YMAL file.')
+    parser.add_argument('--launcher', choices=['none', 'pytorch'], default='none', help='job launcher')
     parser.add_argument('--local_rank', type=int, default=0)
     parser.add_argument('--gpu_ids_qsub', type=str, default=None)
     parser.add_argument('--slurm_job_id', type=str, default=0)
@@ -325,7 +324,7 @@ def main():
     if rank <= 0:
         logger.info('Saving the final model.')
         model.save('latest')
-        logger.info('End of MANet training.')
+        logger.info('End of training.')
 
 
 if __name__ == '__main__':
