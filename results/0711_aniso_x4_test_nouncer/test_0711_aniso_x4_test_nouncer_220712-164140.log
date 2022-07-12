@@ -1,0 +1,1792 @@
+22-07-12 16:41:40.251 - INFO:   name: 0711_aniso_x4_test_nouncer
+  suffix: None
+  model: blind
+  distortion: sr
+  scale: 4
+  crop_border: None
+  gpu_ids: [0]
+  kernel_size: 21
+  sig_min: 0.2
+  sig_max: 4
+  sig: 1.6
+  sig1: [2.0, 2.0, 3.5, 3.5, 3.5, 4.0, 4.0, 4.0, 4.0]
+  sig2: [0.5, 1.0, 1.5, 2.0, 2.0, 1.5, 2.0, 3.0, 4.0]
+  theta: [0, 10, 30, 45, 90, 120, 135, 165, 180]
+  test_noise: True
+  noise: 0
+  rate_iso: 0
+  sv_mode: 0
+  test_jpeg: False
+  jpeg: 70
+  cal_lr_psnr: False
+  datasets:[
+    test_1:[
+      name: Set14
+      mode: GT
+      dataroot_GT: ../datasets/Set14/HR
+      dataroot_LQ: None
+      phase: test
+      scale: 4
+      data_type: img
+    ]
+  ]
+  network_G:[
+    which_model_G: BlindNet_nouncer
+    scale: 4
+  ]
+  path:[
+    strict_load: True
+    pretrain_model_G: ../experiments/pretrained_models/0228_aniso_x4_nouncer/80000_G.pth
+    root: D:\Fang\study\my_code\Github_code\Kernel_Uncertainty
+    results_root: D:\Fang\study\my_code\Github_code\Kernel_Uncertainty\results\0711_aniso_x4_test_nouncer
+    log: D:\Fang\study\my_code\Github_code\Kernel_Uncertainty\results\0711_aniso_x4_test_nouncer
+  ]
+  is_train: False
+
+22-07-12 16:41:40.251 - INFO: Dataset [GTDataset - Set14] is created.
+22-07-12 16:41:40.251 - INFO: Number of test images in [Set14]: 14
+22-07-12 16:41:40.285 - INFO: Network G structure: DataParallel - BlindNet_nouncer, with parameters: 2,851,587
+22-07-12 16:41:40.285 - INFO: BlindNet_nouncer(
+  (kernel_extra): kernel_extra(
+    (Encoding_Block1): kernel_extra_Encoding_Block(
+      (Conv_head): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (downsample): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (act): ReLU()
+    )
+    (Encoding_Block2): kernel_extra_Encoding_Block(
+      (Conv_head): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (downsample): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (act): ReLU()
+    )
+    (Conv_mid): kernel_extra_conv_mid(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+        (4): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (5): ReLU()
+        (6): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (7): ReLU()
+        (8): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (9): ReLU()
+      )
+    )
+    (Decoding_Block1): kernel_extra_Decoding_Block(
+      (Conv_t): ConvTranspose2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (Conv_head): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (act): ReLU()
+    )
+    (Decoding_Block2): kernel_extra_Decoding_Block(
+      (Conv_t): ConvTranspose2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (Conv_head): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (act): ReLU()
+    )
+    (Conv_tail): kernel_extra_conv_tail(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 441, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+  )
+  (SR_net): DLSM(
+    (Encoding): Encoding(
+      (E1): Sequential(
+        (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E2): Sequential(
+        (0): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E3): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E4): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E5): Sequential(
+        (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+    )
+    (Decoding): Decoding(
+      (D1): Sequential(
+        (0): Conv2d(256, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (D2): Sequential(
+        (0): Conv2d(192, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (D3): Sequential(
+        (0): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (D4): Sequential(
+        (0): Conv2d(96, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (w_generator): Sequential(
+        (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+        (4): Conv2d(32, 3, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (u_generator): Sequential(
+        (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+        (4): Conv2d(32, 3, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (conv): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (Den_con1): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1))
+    (Den_con2): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1))
+    (Den_con3): Conv2d(96, 32, kernel_size=(1, 1), stride=(1, 1))
+    (Den_con4): Conv2d(128, 32, kernel_size=(1, 1), stride=(1, 1))
+  )
+)
+22-07-12 16:41:40.288 - INFO: Loading model for G [../experiments/pretrained_models/0228_aniso_x4_nouncer/80000_G.pth] ...
+22-07-12 16:41:40.303 - INFO: Model [B_Model] is created.
+22-07-12 16:41:40.303 - INFO: 
+Testing [Set14]...
+22-07-12 16:41:41.007 - INFO: img_001              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 22.73/0.4957; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.16 dB.
+22-07-12 16:41:42.025 - INFO: img_002              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 25.64/0.7176; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.65 dB.
+22-07-12 16:41:42.843 - INFO: img_003              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 25.08/0.6141; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.95 dB.
+22-07-12 16:41:43.294 - INFO: img_004              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 25.70/0.5437; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 45.94 dB.
+22-07-12 16:41:43.722 - INFO: img_005              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 22.57/0.6586; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.96 dB.
+22-07-12 16:41:44.100 - INFO: img_006              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 32.13/0.7696; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 48.21 dB.
+22-07-12 16:41:44.745 - INFO: img_007              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 26.99/0.7728; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.38 dB.
+22-07-12 16:41:45.128 - INFO: img_008              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 32.90/0.9175; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.94 dB.
+22-07-12 16:41:45.774 - INFO: img_009              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 31.31/0.8401; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.64 dB.
+22-07-12 16:41:46.500 - INFO: img_010              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 26.79/0.7237; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.53 dB.
+22-07-12 16:41:47.437 - INFO: img_011              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 30.48/0.9250; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.21 dB.
+22-07-12 16:41:48.197 - INFO: img_012              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 32.82/0.8639; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.29 dB.
+22-07-12 16:41:49.051 - INFO: img_013              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 24.93/0.9165; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.01 dB.
+22-07-12 16:41:49.755 - INFO: img_014              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 26.31/0.7479; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.10 dB.
+22-07-12 16:41:49.755 - INFO: ----Set14 (14 images), average PSNR_Y/SSIM_Y: 27.60/0.7505, LR_PSNR_Y/LR_SSIM_Y: inf/1.0000, kernel PSNR: 47.35
+
+22-07-12 16:41:49.757 - INFO:   name: 0711_aniso_x4_test_nouncer
+  suffix: None
+  model: blind
+  distortion: sr
+  scale: 4
+  crop_border: None
+  gpu_ids: [0]
+  kernel_size: 21
+  sig_min: 0.2
+  sig_max: 4
+  sig: 1.6
+  sig1: [2.0, 2.0, 3.5, 3.5, 3.5, 4.0, 4.0, 4.0, 4.0]
+  sig2: [0.5, 1.0, 1.5, 2.0, 2.0, 1.5, 2.0, 3.0, 4.0]
+  theta: [0, 10, 30, 45, 90, 120, 135, 165, 180]
+  test_noise: True
+  noise: 0
+  rate_iso: 0
+  sv_mode: 0
+  test_jpeg: False
+  jpeg: 70
+  cal_lr_psnr: False
+  datasets:[
+    test_1:[
+      name: Set14
+      mode: GT
+      dataroot_GT: ../datasets/Set14/HR
+      dataroot_LQ: None
+      phase: test
+      scale: 4
+      data_type: img
+    ]
+  ]
+  network_G:[
+    which_model_G: BlindNet_nouncer
+    scale: 4
+  ]
+  path:[
+    strict_load: True
+    pretrain_model_G: ../experiments/pretrained_models/0228_aniso_x4_nouncer/80000_G.pth
+    root: D:\Fang\study\my_code\Github_code\Kernel_Uncertainty
+    results_root: D:\Fang\study\my_code\Github_code\Kernel_Uncertainty\results\0711_aniso_x4_test_nouncer
+    log: D:\Fang\study\my_code\Github_code\Kernel_Uncertainty\results\0711_aniso_x4_test_nouncer
+  ]
+  is_train: False
+
+22-07-12 16:41:49.758 - INFO: Dataset [GTDataset - Set14] is created.
+22-07-12 16:41:49.758 - INFO: Number of test images in [Set14]: 14
+22-07-12 16:41:49.791 - INFO: Network G structure: DataParallel - BlindNet_nouncer, with parameters: 2,851,587
+22-07-12 16:41:49.791 - INFO: BlindNet_nouncer(
+  (kernel_extra): kernel_extra(
+    (Encoding_Block1): kernel_extra_Encoding_Block(
+      (Conv_head): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (downsample): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (act): ReLU()
+    )
+    (Encoding_Block2): kernel_extra_Encoding_Block(
+      (Conv_head): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (downsample): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (act): ReLU()
+    )
+    (Conv_mid): kernel_extra_conv_mid(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+        (4): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (5): ReLU()
+        (6): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (7): ReLU()
+        (8): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (9): ReLU()
+      )
+    )
+    (Decoding_Block1): kernel_extra_Decoding_Block(
+      (Conv_t): ConvTranspose2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (Conv_head): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (act): ReLU()
+    )
+    (Decoding_Block2): kernel_extra_Decoding_Block(
+      (Conv_t): ConvTranspose2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (Conv_head): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (act): ReLU()
+    )
+    (Conv_tail): kernel_extra_conv_tail(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 441, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+  )
+  (SR_net): DLSM(
+    (Encoding): Encoding(
+      (E1): Sequential(
+        (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E2): Sequential(
+        (0): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E3): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E4): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E5): Sequential(
+        (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+    )
+    (Decoding): Decoding(
+      (D1): Sequential(
+        (0): Conv2d(256, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (D2): Sequential(
+        (0): Conv2d(192, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (D3): Sequential(
+        (0): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (D4): Sequential(
+        (0): Conv2d(96, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (w_generator): Sequential(
+        (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+        (4): Conv2d(32, 3, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (u_generator): Sequential(
+        (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+        (4): Conv2d(32, 3, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (conv): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (Den_con1): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1))
+    (Den_con2): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1))
+    (Den_con3): Conv2d(96, 32, kernel_size=(1, 1), stride=(1, 1))
+    (Den_con4): Conv2d(128, 32, kernel_size=(1, 1), stride=(1, 1))
+  )
+)
+22-07-12 16:41:49.794 - INFO: Loading model for G [../experiments/pretrained_models/0228_aniso_x4_nouncer/80000_G.pth] ...
+22-07-12 16:41:49.809 - INFO: Model [B_Model] is created.
+22-07-12 16:41:49.810 - INFO: 
+Testing [Set14]...
+22-07-12 16:41:50.491 - INFO: img_001              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 22.74/0.4930; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.81 dB.
+22-07-12 16:41:51.483 - INFO: img_002              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 25.69/0.7188; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 45.94 dB.
+22-07-12 16:41:52.270 - INFO: img_003              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 25.13/0.6150; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.39 dB.
+22-07-12 16:41:52.699 - INFO: img_004              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 25.73/0.5369; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.59 dB.
+22-07-12 16:41:53.102 - INFO: img_005              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 22.61/0.6593; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.23 dB.
+22-07-12 16:41:53.415 - INFO: img_006              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 32.10/0.7678; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.42 dB.
+22-07-12 16:41:54.069 - INFO: img_007              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 27.03/0.7730; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.89 dB.
+22-07-12 16:41:54.463 - INFO: img_008              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 32.70/0.9144; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.42 dB.
+22-07-12 16:41:55.115 - INFO: img_009              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 31.35/0.8403; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.82 dB.
+22-07-12 16:41:55.856 - INFO: img_010              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 26.86/0.7255; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.00 dB.
+22-07-12 16:41:56.816 - INFO: img_011              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 30.53/0.9242; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.45 dB.
+22-07-12 16:41:58.833 - INFO: img_012              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 32.84/0.8636; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.51 dB.
+22-07-12 16:41:59.740 - INFO: img_013              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 25.05/0.9174; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.48 dB.
+22-07-12 16:42:00.462 - INFO: img_014              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 26.38/0.7454; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.49 dB.
+22-07-12 16:42:00.462 - INFO: ----Set14 (14 images), average PSNR_Y/SSIM_Y: 27.62/0.7496, LR_PSNR_Y/LR_SSIM_Y: inf/1.0000, kernel PSNR: 46.82
+
+22-07-12 16:42:00.463 - INFO:   name: 0711_aniso_x4_test_nouncer
+  suffix: None
+  model: blind
+  distortion: sr
+  scale: 4
+  crop_border: None
+  gpu_ids: [0]
+  kernel_size: 21
+  sig_min: 0.2
+  sig_max: 4
+  sig: 1.6
+  sig1: [2.0, 2.0, 3.5, 3.5, 3.5, 4.0, 4.0, 4.0, 4.0]
+  sig2: [0.5, 1.0, 1.5, 2.0, 2.0, 1.5, 2.0, 3.0, 4.0]
+  theta: [0, 10, 30, 45, 90, 120, 135, 165, 180]
+  test_noise: True
+  noise: 0
+  rate_iso: 0
+  sv_mode: 0
+  test_jpeg: False
+  jpeg: 70
+  cal_lr_psnr: False
+  datasets:[
+    test_1:[
+      name: Set14
+      mode: GT
+      dataroot_GT: ../datasets/Set14/HR
+      dataroot_LQ: None
+      phase: test
+      scale: 4
+      data_type: img
+    ]
+  ]
+  network_G:[
+    which_model_G: BlindNet_nouncer
+    scale: 4
+  ]
+  path:[
+    strict_load: True
+    pretrain_model_G: ../experiments/pretrained_models/0228_aniso_x4_nouncer/80000_G.pth
+    root: D:\Fang\study\my_code\Github_code\Kernel_Uncertainty
+    results_root: D:\Fang\study\my_code\Github_code\Kernel_Uncertainty\results\0711_aniso_x4_test_nouncer
+    log: D:\Fang\study\my_code\Github_code\Kernel_Uncertainty\results\0711_aniso_x4_test_nouncer
+  ]
+  is_train: False
+
+22-07-12 16:42:00.465 - INFO: Dataset [GTDataset - Set14] is created.
+22-07-12 16:42:00.465 - INFO: Number of test images in [Set14]: 14
+22-07-12 16:42:00.498 - INFO: Network G structure: DataParallel - BlindNet_nouncer, with parameters: 2,851,587
+22-07-12 16:42:00.499 - INFO: BlindNet_nouncer(
+  (kernel_extra): kernel_extra(
+    (Encoding_Block1): kernel_extra_Encoding_Block(
+      (Conv_head): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (downsample): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (act): ReLU()
+    )
+    (Encoding_Block2): kernel_extra_Encoding_Block(
+      (Conv_head): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (downsample): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (act): ReLU()
+    )
+    (Conv_mid): kernel_extra_conv_mid(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+        (4): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (5): ReLU()
+        (6): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (7): ReLU()
+        (8): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (9): ReLU()
+      )
+    )
+    (Decoding_Block1): kernel_extra_Decoding_Block(
+      (Conv_t): ConvTranspose2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (Conv_head): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (act): ReLU()
+    )
+    (Decoding_Block2): kernel_extra_Decoding_Block(
+      (Conv_t): ConvTranspose2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (Conv_head): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (act): ReLU()
+    )
+    (Conv_tail): kernel_extra_conv_tail(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 441, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+  )
+  (SR_net): DLSM(
+    (Encoding): Encoding(
+      (E1): Sequential(
+        (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E2): Sequential(
+        (0): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E3): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E4): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E5): Sequential(
+        (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+    )
+    (Decoding): Decoding(
+      (D1): Sequential(
+        (0): Conv2d(256, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (D2): Sequential(
+        (0): Conv2d(192, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (D3): Sequential(
+        (0): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (D4): Sequential(
+        (0): Conv2d(96, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (w_generator): Sequential(
+        (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+        (4): Conv2d(32, 3, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (u_generator): Sequential(
+        (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+        (4): Conv2d(32, 3, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (conv): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (Den_con1): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1))
+    (Den_con2): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1))
+    (Den_con3): Conv2d(96, 32, kernel_size=(1, 1), stride=(1, 1))
+    (Den_con4): Conv2d(128, 32, kernel_size=(1, 1), stride=(1, 1))
+  )
+)
+22-07-12 16:42:00.509 - INFO: Loading model for G [../experiments/pretrained_models/0228_aniso_x4_nouncer/80000_G.pth] ...
+22-07-12 16:42:00.525 - INFO: Model [B_Model] is created.
+22-07-12 16:42:00.525 - INFO: 
+Testing [Set14]...
+22-07-12 16:42:01.193 - INFO: img_001              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 22.73/0.4939; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.16 dB.
+22-07-12 16:42:02.149 - INFO: img_002              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 25.83/0.7271; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.03 dB.
+22-07-12 16:42:02.916 - INFO: img_003              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 25.10/0.6178; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.52 dB.
+22-07-12 16:42:03.351 - INFO: img_004              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 25.73/0.5341; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.15 dB.
+22-07-12 16:42:03.753 - INFO: img_005              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 22.60/0.6619; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.22 dB.
+22-07-12 16:42:04.066 - INFO: img_006              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 32.15/0.7689; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.43 dB.
+22-07-12 16:42:04.686 - INFO: img_007              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 27.00/0.7732; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.90 dB.
+22-07-12 16:42:05.072 - INFO: img_008              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 32.57/0.9131; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.42 dB.
+22-07-12 16:42:05.758 - INFO: img_009              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 31.53/0.8444; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.81 dB.
+22-07-12 16:42:06.444 - INFO: img_010              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 26.89/0.7293; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.86 dB.
+22-07-12 16:42:07.446 - INFO: img_011              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 30.41/0.9230; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.52 dB.
+22-07-12 16:42:08.192 - INFO: img_012              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 32.84/0.8638; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.34 dB.
+22-07-12 16:42:09.023 - INFO: img_013              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 25.12/0.9179; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.31 dB.
+22-07-12 16:42:09.707 - INFO: img_014              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 26.43/0.7442; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.47 dB.
+22-07-12 16:42:09.707 - INFO: ----Set14 (14 images), average PSNR_Y/SSIM_Y: 27.64/0.7509, LR_PSNR_Y/LR_SSIM_Y: inf/1.0000, kernel PSNR: 46.87
+
+22-07-12 16:42:09.709 - INFO:   name: 0711_aniso_x4_test_nouncer
+  suffix: None
+  model: blind
+  distortion: sr
+  scale: 4
+  crop_border: None
+  gpu_ids: [0]
+  kernel_size: 21
+  sig_min: 0.2
+  sig_max: 4
+  sig: 1.6
+  sig1: [2.0, 2.0, 3.5, 3.5, 3.5, 4.0, 4.0, 4.0, 4.0]
+  sig2: [0.5, 1.0, 1.5, 2.0, 2.0, 1.5, 2.0, 3.0, 4.0]
+  theta: [0, 10, 30, 45, 90, 120, 135, 165, 180]
+  test_noise: True
+  noise: 0
+  rate_iso: 0
+  sv_mode: 0
+  test_jpeg: False
+  jpeg: 70
+  cal_lr_psnr: False
+  datasets:[
+    test_1:[
+      name: Set14
+      mode: GT
+      dataroot_GT: ../datasets/Set14/HR
+      dataroot_LQ: None
+      phase: test
+      scale: 4
+      data_type: img
+    ]
+  ]
+  network_G:[
+    which_model_G: BlindNet_nouncer
+    scale: 4
+  ]
+  path:[
+    strict_load: True
+    pretrain_model_G: ../experiments/pretrained_models/0228_aniso_x4_nouncer/80000_G.pth
+    root: D:\Fang\study\my_code\Github_code\Kernel_Uncertainty
+    results_root: D:\Fang\study\my_code\Github_code\Kernel_Uncertainty\results\0711_aniso_x4_test_nouncer
+    log: D:\Fang\study\my_code\Github_code\Kernel_Uncertainty\results\0711_aniso_x4_test_nouncer
+  ]
+  is_train: False
+
+22-07-12 16:42:09.711 - INFO: Dataset [GTDataset - Set14] is created.
+22-07-12 16:42:09.711 - INFO: Number of test images in [Set14]: 14
+22-07-12 16:42:09.744 - INFO: Network G structure: DataParallel - BlindNet_nouncer, with parameters: 2,851,587
+22-07-12 16:42:09.744 - INFO: BlindNet_nouncer(
+  (kernel_extra): kernel_extra(
+    (Encoding_Block1): kernel_extra_Encoding_Block(
+      (Conv_head): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (downsample): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (act): ReLU()
+    )
+    (Encoding_Block2): kernel_extra_Encoding_Block(
+      (Conv_head): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (downsample): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (act): ReLU()
+    )
+    (Conv_mid): kernel_extra_conv_mid(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+        (4): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (5): ReLU()
+        (6): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (7): ReLU()
+        (8): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (9): ReLU()
+      )
+    )
+    (Decoding_Block1): kernel_extra_Decoding_Block(
+      (Conv_t): ConvTranspose2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (Conv_head): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (act): ReLU()
+    )
+    (Decoding_Block2): kernel_extra_Decoding_Block(
+      (Conv_t): ConvTranspose2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (Conv_head): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (act): ReLU()
+    )
+    (Conv_tail): kernel_extra_conv_tail(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 441, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+  )
+  (SR_net): DLSM(
+    (Encoding): Encoding(
+      (E1): Sequential(
+        (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E2): Sequential(
+        (0): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E3): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E4): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E5): Sequential(
+        (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+    )
+    (Decoding): Decoding(
+      (D1): Sequential(
+        (0): Conv2d(256, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (D2): Sequential(
+        (0): Conv2d(192, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (D3): Sequential(
+        (0): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (D4): Sequential(
+        (0): Conv2d(96, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (w_generator): Sequential(
+        (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+        (4): Conv2d(32, 3, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (u_generator): Sequential(
+        (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+        (4): Conv2d(32, 3, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (conv): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (Den_con1): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1))
+    (Den_con2): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1))
+    (Den_con3): Conv2d(96, 32, kernel_size=(1, 1), stride=(1, 1))
+    (Den_con4): Conv2d(128, 32, kernel_size=(1, 1), stride=(1, 1))
+  )
+)
+22-07-12 16:42:09.750 - INFO: Loading model for G [../experiments/pretrained_models/0228_aniso_x4_nouncer/80000_G.pth] ...
+22-07-12 16:42:09.765 - INFO: Model [B_Model] is created.
+22-07-12 16:42:09.766 - INFO: 
+Testing [Set14]...
+22-07-12 16:42:10.448 - INFO: img_001              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 22.69/0.4918; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.93 dB.
+22-07-12 16:42:11.438 - INFO: img_002              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 25.93/0.7328; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.06 dB.
+22-07-12 16:42:12.201 - INFO: img_003              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 25.05/0.6150; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.20 dB.
+22-07-12 16:42:12.632 - INFO: img_004              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 25.65/0.5297; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.68 dB.
+22-07-12 16:42:13.026 - INFO: img_005              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 22.44/0.6501; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.89 dB.
+22-07-12 16:42:13.341 - INFO: img_006              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 32.12/0.7684; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.15 dB.
+22-07-12 16:42:13.963 - INFO: img_007              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 26.77/0.7671; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.82 dB.
+22-07-12 16:42:14.352 - INFO: img_008              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 32.16/0.9099; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 47.31 dB.
+22-07-12 16:42:14.996 - INFO: img_009              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 31.46/0.8445; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.47 dB.
+22-07-12 16:42:15.719 - INFO: img_010              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 26.76/0.7250; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.36 dB.
+22-07-12 16:42:16.698 - INFO: img_011              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 29.95/0.9193; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.55 dB.
+22-07-12 16:42:17.487 - INFO: img_012              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 32.69/0.8623; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.26 dB.
+22-07-12 16:42:18.334 - INFO: img_013              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 24.99/0.9148; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.05 dB.
+22-07-12 16:42:19.001 - INFO: img_014              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 26.20/0.7396; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.24 dB.
+22-07-12 16:42:19.002 - INFO: ----Set14 (14 images), average PSNR_Y/SSIM_Y: 27.49/0.7479, LR_PSNR_Y/LR_SSIM_Y: inf/1.0000, kernel PSNR: 46.64
+
+22-07-12 16:42:19.003 - INFO:   name: 0711_aniso_x4_test_nouncer
+  suffix: None
+  model: blind
+  distortion: sr
+  scale: 4
+  crop_border: None
+  gpu_ids: [0]
+  kernel_size: 21
+  sig_min: 0.2
+  sig_max: 4
+  sig: 1.6
+  sig1: [2.0, 2.0, 3.5, 3.5, 3.5, 4.0, 4.0, 4.0, 4.0]
+  sig2: [0.5, 1.0, 1.5, 2.0, 2.0, 1.5, 2.0, 3.0, 4.0]
+  theta: [0, 10, 30, 45, 90, 120, 135, 165, 180]
+  test_noise: True
+  noise: 0
+  rate_iso: 0
+  sv_mode: 0
+  test_jpeg: False
+  jpeg: 70
+  cal_lr_psnr: False
+  datasets:[
+    test_1:[
+      name: Set14
+      mode: GT
+      dataroot_GT: ../datasets/Set14/HR
+      dataroot_LQ: None
+      phase: test
+      scale: 4
+      data_type: img
+    ]
+  ]
+  network_G:[
+    which_model_G: BlindNet_nouncer
+    scale: 4
+  ]
+  path:[
+    strict_load: True
+    pretrain_model_G: ../experiments/pretrained_models/0228_aniso_x4_nouncer/80000_G.pth
+    root: D:\Fang\study\my_code\Github_code\Kernel_Uncertainty
+    results_root: D:\Fang\study\my_code\Github_code\Kernel_Uncertainty\results\0711_aniso_x4_test_nouncer
+    log: D:\Fang\study\my_code\Github_code\Kernel_Uncertainty\results\0711_aniso_x4_test_nouncer
+  ]
+  is_train: False
+
+22-07-12 16:42:19.006 - INFO: Dataset [GTDataset - Set14] is created.
+22-07-12 16:42:19.006 - INFO: Number of test images in [Set14]: 14
+22-07-12 16:42:19.039 - INFO: Network G structure: DataParallel - BlindNet_nouncer, with parameters: 2,851,587
+22-07-12 16:42:19.039 - INFO: BlindNet_nouncer(
+  (kernel_extra): kernel_extra(
+    (Encoding_Block1): kernel_extra_Encoding_Block(
+      (Conv_head): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (downsample): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (act): ReLU()
+    )
+    (Encoding_Block2): kernel_extra_Encoding_Block(
+      (Conv_head): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (downsample): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (act): ReLU()
+    )
+    (Conv_mid): kernel_extra_conv_mid(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+        (4): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (5): ReLU()
+        (6): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (7): ReLU()
+        (8): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (9): ReLU()
+      )
+    )
+    (Decoding_Block1): kernel_extra_Decoding_Block(
+      (Conv_t): ConvTranspose2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (Conv_head): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (act): ReLU()
+    )
+    (Decoding_Block2): kernel_extra_Decoding_Block(
+      (Conv_t): ConvTranspose2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (Conv_head): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (act): ReLU()
+    )
+    (Conv_tail): kernel_extra_conv_tail(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 441, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+  )
+  (SR_net): DLSM(
+    (Encoding): Encoding(
+      (E1): Sequential(
+        (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E2): Sequential(
+        (0): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E3): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E4): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E5): Sequential(
+        (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+    )
+    (Decoding): Decoding(
+      (D1): Sequential(
+        (0): Conv2d(256, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (D2): Sequential(
+        (0): Conv2d(192, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (D3): Sequential(
+        (0): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (D4): Sequential(
+        (0): Conv2d(96, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (w_generator): Sequential(
+        (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+        (4): Conv2d(32, 3, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (u_generator): Sequential(
+        (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+        (4): Conv2d(32, 3, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (conv): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (Den_con1): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1))
+    (Den_con2): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1))
+    (Den_con3): Conv2d(96, 32, kernel_size=(1, 1), stride=(1, 1))
+    (Den_con4): Conv2d(128, 32, kernel_size=(1, 1), stride=(1, 1))
+  )
+)
+22-07-12 16:42:19.047 - INFO: Loading model for G [../experiments/pretrained_models/0228_aniso_x4_nouncer/80000_G.pth] ...
+22-07-12 16:42:19.062 - INFO: Model [B_Model] is created.
+22-07-12 16:42:19.063 - INFO: 
+Testing [Set14]...
+22-07-12 16:42:19.745 - INFO: img_001              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 22.70/0.4891; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.36 dB.
+22-07-12 16:42:20.697 - INFO: img_002              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 25.89/0.7287; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 45.39 dB.
+22-07-12 16:42:21.488 - INFO: img_003              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 25.12/0.6150; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.67 dB.
+22-07-12 16:42:21.953 - INFO: img_004              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 25.70/0.5339; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.02 dB.
+22-07-12 16:42:22.370 - INFO: img_005              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 22.49/0.6493; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.39 dB.
+22-07-12 16:42:22.696 - INFO: img_006              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 32.11/0.7677; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.53 dB.
+22-07-12 16:42:23.317 - INFO: img_007              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 26.83/0.7664; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.22 dB.
+22-07-12 16:42:23.696 - INFO: img_008              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 32.09/0.9092; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.59 dB.
+22-07-12 16:42:24.344 - INFO: img_009              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 31.45/0.8433; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 45.99 dB.
+22-07-12 16:42:25.042 - INFO: img_010              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 26.81/0.7243; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 46.14 dB.
+22-07-12 16:42:25.989 - INFO: img_011              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 30.00/0.9188; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 45.84 dB.
+22-07-12 16:42:26.793 - INFO: img_012              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 32.74/0.8620; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 45.84 dB.
+22-07-12 16:42:27.667 - INFO: img_013              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 24.98/0.9157; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 45.81 dB.
+22-07-12 16:42:28.386 - INFO: img_014              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 26.27/0.7410; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 45.82 dB.
+22-07-12 16:42:28.387 - INFO: ----Set14 (14 images), average PSNR_Y/SSIM_Y: 27.51/0.7475, LR_PSNR_Y/LR_SSIM_Y: inf/1.0000, kernel PSNR: 46.11
+
+22-07-12 16:42:28.389 - INFO:   name: 0711_aniso_x4_test_nouncer
+  suffix: None
+  model: blind
+  distortion: sr
+  scale: 4
+  crop_border: None
+  gpu_ids: [0]
+  kernel_size: 21
+  sig_min: 0.2
+  sig_max: 4
+  sig: 1.6
+  sig1: [2.0, 2.0, 3.5, 3.5, 3.5, 4.0, 4.0, 4.0, 4.0]
+  sig2: [0.5, 1.0, 1.5, 2.0, 2.0, 1.5, 2.0, 3.0, 4.0]
+  theta: [0, 10, 30, 45, 90, 120, 135, 165, 180]
+  test_noise: True
+  noise: 0
+  rate_iso: 0
+  sv_mode: 0
+  test_jpeg: False
+  jpeg: 70
+  cal_lr_psnr: False
+  datasets:[
+    test_1:[
+      name: Set14
+      mode: GT
+      dataroot_GT: ../datasets/Set14/HR
+      dataroot_LQ: None
+      phase: test
+      scale: 4
+      data_type: img
+    ]
+  ]
+  network_G:[
+    which_model_G: BlindNet_nouncer
+    scale: 4
+  ]
+  path:[
+    strict_load: True
+    pretrain_model_G: ../experiments/pretrained_models/0228_aniso_x4_nouncer/80000_G.pth
+    root: D:\Fang\study\my_code\Github_code\Kernel_Uncertainty
+    results_root: D:\Fang\study\my_code\Github_code\Kernel_Uncertainty\results\0711_aniso_x4_test_nouncer
+    log: D:\Fang\study\my_code\Github_code\Kernel_Uncertainty\results\0711_aniso_x4_test_nouncer
+  ]
+  is_train: False
+
+22-07-12 16:42:28.392 - INFO: Dataset [GTDataset - Set14] is created.
+22-07-12 16:42:28.392 - INFO: Number of test images in [Set14]: 14
+22-07-12 16:42:28.426 - INFO: Network G structure: DataParallel - BlindNet_nouncer, with parameters: 2,851,587
+22-07-12 16:42:28.426 - INFO: BlindNet_nouncer(
+  (kernel_extra): kernel_extra(
+    (Encoding_Block1): kernel_extra_Encoding_Block(
+      (Conv_head): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (downsample): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (act): ReLU()
+    )
+    (Encoding_Block2): kernel_extra_Encoding_Block(
+      (Conv_head): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (downsample): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (act): ReLU()
+    )
+    (Conv_mid): kernel_extra_conv_mid(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+        (4): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (5): ReLU()
+        (6): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (7): ReLU()
+        (8): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (9): ReLU()
+      )
+    )
+    (Decoding_Block1): kernel_extra_Decoding_Block(
+      (Conv_t): ConvTranspose2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (Conv_head): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (act): ReLU()
+    )
+    (Decoding_Block2): kernel_extra_Decoding_Block(
+      (Conv_t): ConvTranspose2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (Conv_head): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (act): ReLU()
+    )
+    (Conv_tail): kernel_extra_conv_tail(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 441, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+  )
+  (SR_net): DLSM(
+    (Encoding): Encoding(
+      (E1): Sequential(
+        (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E2): Sequential(
+        (0): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E3): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E4): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E5): Sequential(
+        (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+    )
+    (Decoding): Decoding(
+      (D1): Sequential(
+        (0): Conv2d(256, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (D2): Sequential(
+        (0): Conv2d(192, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (D3): Sequential(
+        (0): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (D4): Sequential(
+        (0): Conv2d(96, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (w_generator): Sequential(
+        (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+        (4): Conv2d(32, 3, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (u_generator): Sequential(
+        (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+        (4): Conv2d(32, 3, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (conv): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (Den_con1): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1))
+    (Den_con2): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1))
+    (Den_con3): Conv2d(96, 32, kernel_size=(1, 1), stride=(1, 1))
+    (Den_con4): Conv2d(128, 32, kernel_size=(1, 1), stride=(1, 1))
+  )
+)
+22-07-12 16:42:28.433 - INFO: Loading model for G [../experiments/pretrained_models/0228_aniso_x4_nouncer/80000_G.pth] ...
+22-07-12 16:42:28.448 - INFO: Model [B_Model] is created.
+22-07-12 16:42:28.449 - INFO: 
+Testing [Set14]...
+22-07-12 16:42:29.121 - INFO: img_001              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 22.68/0.4789; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 45.20 dB.
+22-07-12 16:42:30.087 - INFO: img_002              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 25.68/0.7159; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 44.33 dB.
+22-07-12 16:42:30.852 - INFO: img_003              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 25.10/0.6067; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 45.46 dB.
+22-07-12 16:42:31.296 - INFO: img_004              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 25.74/0.5348; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 45.25 dB.
+22-07-12 16:42:31.742 - INFO: img_005              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 22.45/0.6422; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 45.21 dB.
+22-07-12 16:42:32.063 - INFO: img_006              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 31.96/0.7630; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 45.28 dB.
+22-07-12 16:42:32.680 - INFO: img_007              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 26.79/0.7614; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 44.88 dB.
+22-07-12 16:42:33.067 - INFO: img_008              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 32.11/0.9072; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 45.29 dB.
+22-07-12 16:42:33.720 - INFO: img_009              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 31.19/0.8370; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 44.85 dB.
+22-07-12 16:42:34.406 - INFO: img_010              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 26.76/0.7183; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 45.12 dB.
+22-07-12 16:42:35.405 - INFO: img_011              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 29.95/0.9160; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 44.61 dB.
+22-07-12 16:42:36.150 - INFO: img_012              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 32.48/0.8588; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 44.62 dB.
+22-07-12 16:42:37.039 - INFO: img_013              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 24.61/0.9097; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 44.74 dB.
+22-07-12 16:42:37.729 - INFO: img_014              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 26.00/0.7324; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 44.78 dB.
+22-07-12 16:42:37.729 - INFO: ----Set14 (14 images), average PSNR_Y/SSIM_Y: 27.39/0.7416, LR_PSNR_Y/LR_SSIM_Y: inf/1.0000, kernel PSNR: 44.97
+
+22-07-12 16:42:37.731 - INFO:   name: 0711_aniso_x4_test_nouncer
+  suffix: None
+  model: blind
+  distortion: sr
+  scale: 4
+  crop_border: None
+  gpu_ids: [0]
+  kernel_size: 21
+  sig_min: 0.2
+  sig_max: 4
+  sig: 1.6
+  sig1: [2.0, 2.0, 3.5, 3.5, 3.5, 4.0, 4.0, 4.0, 4.0]
+  sig2: [0.5, 1.0, 1.5, 2.0, 2.0, 1.5, 2.0, 3.0, 4.0]
+  theta: [0, 10, 30, 45, 90, 120, 135, 165, 180]
+  test_noise: True
+  noise: 0
+  rate_iso: 0
+  sv_mode: 0
+  test_jpeg: False
+  jpeg: 70
+  cal_lr_psnr: False
+  datasets:[
+    test_1:[
+      name: Set14
+      mode: GT
+      dataroot_GT: ../datasets/Set14/HR
+      dataroot_LQ: None
+      phase: test
+      scale: 4
+      data_type: img
+    ]
+  ]
+  network_G:[
+    which_model_G: BlindNet_nouncer
+    scale: 4
+  ]
+  path:[
+    strict_load: True
+    pretrain_model_G: ../experiments/pretrained_models/0228_aniso_x4_nouncer/80000_G.pth
+    root: D:\Fang\study\my_code\Github_code\Kernel_Uncertainty
+    results_root: D:\Fang\study\my_code\Github_code\Kernel_Uncertainty\results\0711_aniso_x4_test_nouncer
+    log: D:\Fang\study\my_code\Github_code\Kernel_Uncertainty\results\0711_aniso_x4_test_nouncer
+  ]
+  is_train: False
+
+22-07-12 16:42:37.732 - INFO: Dataset [GTDataset - Set14] is created.
+22-07-12 16:42:37.732 - INFO: Number of test images in [Set14]: 14
+22-07-12 16:42:37.764 - INFO: Network G structure: DataParallel - BlindNet_nouncer, with parameters: 2,851,587
+22-07-12 16:42:37.765 - INFO: BlindNet_nouncer(
+  (kernel_extra): kernel_extra(
+    (Encoding_Block1): kernel_extra_Encoding_Block(
+      (Conv_head): Conv2d(3, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (downsample): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (act): ReLU()
+    )
+    (Encoding_Block2): kernel_extra_Encoding_Block(
+      (Conv_head): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (downsample): Conv2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (act): ReLU()
+    )
+    (Conv_mid): kernel_extra_conv_mid(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+        (4): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (5): ReLU()
+        (6): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (7): ReLU()
+        (8): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (9): ReLU()
+      )
+    )
+    (Decoding_Block1): kernel_extra_Decoding_Block(
+      (Conv_t): ConvTranspose2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (Conv_head): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (act): ReLU()
+    )
+    (Decoding_Block2): kernel_extra_Decoding_Block(
+      (Conv_t): ConvTranspose2d(64, 64, kernel_size=(3, 3), stride=(2, 2), padding=(1, 1))
+      (Conv_head): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      (ResBlock1): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (ResBlock2): ResBlock(
+        (body): Sequential(
+          (0): ReLU()
+          (1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+          (2): ReLU()
+          (3): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        )
+      )
+      (act): ReLU()
+    )
+    (Conv_tail): kernel_extra_conv_tail(
+      (body): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 441, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+      )
+    )
+  )
+  (SR_net): DLSM(
+    (Encoding): Encoding(
+      (E1): Sequential(
+        (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E2): Sequential(
+        (0): Conv2d(32, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E3): Sequential(
+        (0): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E4): Sequential(
+        (0): Conv2d(64, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (E5): Sequential(
+        (0): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+    )
+    (Decoding): Decoding(
+      (D1): Sequential(
+        (0): Conv2d(256, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(128, 128, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (D2): Sequential(
+        (0): Conv2d(192, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (D3): Sequential(
+        (0): Conv2d(128, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (D4): Sequential(
+        (0): Conv2d(96, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+      )
+      (w_generator): Sequential(
+        (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+        (4): Conv2d(32, 3, kernel_size=(1, 1), stride=(1, 1))
+      )
+      (u_generator): Sequential(
+        (0): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (1): ReLU()
+        (2): Conv2d(32, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+        (3): ReLU()
+        (4): Conv2d(32, 3, kernel_size=(1, 1), stride=(1, 1))
+      )
+    )
+    (conv): Conv2d(3, 32, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1))
+    (Den_con1): Conv2d(32, 32, kernel_size=(1, 1), stride=(1, 1))
+    (Den_con2): Conv2d(64, 32, kernel_size=(1, 1), stride=(1, 1))
+    (Den_con3): Conv2d(96, 32, kernel_size=(1, 1), stride=(1, 1))
+    (Den_con4): Conv2d(128, 32, kernel_size=(1, 1), stride=(1, 1))
+  )
+)
+22-07-12 16:42:37.769 - INFO: Loading model for G [../experiments/pretrained_models/0228_aniso_x4_nouncer/80000_G.pth] ...
+22-07-12 16:42:37.785 - INFO: Model [B_Model] is created.
+22-07-12 16:42:37.785 - INFO: 
+Testing [Set14]...
+22-07-12 16:42:38.479 - INFO: img_001              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 22.60/0.4665; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 44.31 dB.
+22-07-12 16:42:39.442 - INFO: img_002              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 25.54/0.7072; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 43.61 dB.
+22-07-12 16:42:40.206 - INFO: img_003              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 24.95/0.5928; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 44.53 dB.
+22-07-12 16:42:40.635 - INFO: img_004              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 25.65/0.5255; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 44.63 dB.
+22-07-12 16:42:41.044 - INFO: img_005              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 22.29/0.6272; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 44.30 dB.
+22-07-12 16:42:41.363 - INFO: img_006              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 31.71/0.7550; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 44.36 dB.
+22-07-12 16:42:42.018 - INFO: img_007              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 26.52/0.7514; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 43.99 dB.
+22-07-12 16:42:42.411 - INFO: img_008              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 31.39/0.8980; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 44.40 dB.
+22-07-12 16:42:43.060 - INFO: img_009              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 30.91/0.8310; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 44.01 dB.
+22-07-12 16:42:43.753 - INFO: img_010              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 26.57/0.7079; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 44.28 dB.
+22-07-12 16:42:44.722 - INFO: img_011              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 29.46/0.9094; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 43.78 dB.
+22-07-12 16:42:45.519 - INFO: img_012              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 32.06/0.8539; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 43.78 dB.
+22-07-12 16:42:46.434 - INFO: img_013              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 24.30/0.9001; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 43.92 dB.
+22-07-12 16:42:47.140 - INFO: img_014              - PSNR/SSIM: 0.00/0.0000; PSNR_Y/SSIM_Y: 25.59/0.7158; LR_PSNR_Y/LR_SSIM_Y: inf/1.0000; PSNR_K: 43.96 dB.
+22-07-12 16:42:47.141 - INFO: ----Set14 (14 images), average PSNR_Y/SSIM_Y: 27.11/0.7315, LR_PSNR_Y/LR_SSIM_Y: inf/1.0000, kernel PSNR: 44.13
+

@@ -18,7 +18,7 @@ theta: [0  , 10 , 30 , 45 , 90 , 120, 135, 165, 180]  # range[0, 180]
 #sig2:  [4.0]
 #theta: [180]  # range[0, 180]
 test_noise: True
-noise: 0
+noise: 20
 
 
 rate_iso: 0 # 1 for iso, 0 for aniso
@@ -56,11 +56,11 @@ datasets:
 
 
 network_G:
-  which_model_G: BlindNet
+  which_model_G: BlindNet_nouncer
 
 
 path:
   strict_load: true
-  pretrain_model_G: ../experiments/pretrained_models/0222_aniso_x2/450000_G.pth
+  pretrain_model_G: ../experiments/pretrained_models/0228_aniso_x4_nouncer/80000_G.pth
 
 
