@@ -1,0 +1,91 @@
+#### general settings
+name: 0222_Blind_uncertainty_aniso_x2_DF2K
+use_tb_logger: true
+model: blind
+distortion: sr
+scale: 2
+gpu_ids: [0]
+kernel_size: 21
+
+# train
+sig_min: 0.2
+sig_max: 4
+train_noise: True
+noise_high: 25
+train_jpeg: False
+jpeg_low: 70
+# validation
+sig: 1.6
+sig1: 3.5
+sig2: 1.5
+theta: 0.5233
+rate_iso: 0 # 1 for iso, 0 for aniso
+test_noise: True
+noise: 10
+test_jpeg: False
+jpeg: 70
+cal_lr_psnr: False # calculate lr psnr consumes huge memory
+
+
+#### datasets
+datasets:
+  train:
+    name: DF2K
+    mode: GT
+    dataroot_GT: ../datasets/DF2K/HR
+    dataroot_LQ: ~
+
+    use_shuffle: true
+    n_workers: 8
+    batch_size: 16
+    GT_size: 128
+    LR_size: ~
+    use_flip: true
+    use_rot: true
+    color: RGB
+  val:
+    name: Set14
+    mode: GT
+    dataroot_GT: ../datasets/Set14/HR
+    dataroot_LQ: ~
+
+#### network structures
+network_G:
+  which_model_G: BlindNet
+
+
+#### path
+path:
+  pretrain_model_K: ~ #./experiments/pretrained_models/stage1_uncertainty_x4_latest.pth
+  pretrain_model_G: ~
+  strict_load: false
+  resume_state: ~ #../experiments/001_MANet_aniso_x4_DIV2K_40_stage3/training_state/5000.state
+
+
+#### training settings: learning rate scheme, loss
+train:
+  lr_G: !!float 2e-4
+  lr_scheme: MultiStepLR
+  beta1: 0.9
+  beta2: 0.999
+  niter: 480000
+  warmup_iter: -1
+  lr_steps: [120000, 240000, 360000, 480000]
+  lr_gamma: 0.5
+  restarts: ~
+  restart_weights: ~
+  eta_min: !!float 1e-7
+
+  pixel_criterion: l1
+  pixel_weight: 1.0
+  kernel_criterion: l1
+  kernel_weight: 1.0
+
+  manual_seed: 0
+  val_freq: !!float 5e3
+
+
+#### logger
+logger:
+  print_freq: 200
+  save_checkpoint_freq: !!float 5e3
