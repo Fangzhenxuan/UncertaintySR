@@ -81,9 +81,6 @@ class kernel_extra_Decoding_Block(nn.Module):
         return output
 
 
-
-
-
 class kernel_extra_conv_tail_mean_var(nn.Module):
     def __init__(self, in_ch, out_ch, only_mean=False):
         super(kernel_extra_conv_tail_mean_var, self).__init__()
@@ -108,14 +105,6 @@ class kernel_extra_conv_tail_mean_var(nn.Module):
             epsilon = torch.randn(log_var.shape[0], log_var.shape[1], log_var.shape[2], log_var.shape[3]).cuda()
             var = torch.exp(log_var)
             output = mean + torch.mul(epsilon, var)
-        # mean = self.mean(input)
-        # var = self.var(input)
-        #
-        # if self.only_mean:
-        #     output = mean
-        # else:
-        #     epsilon = torch.randn(var.shape[0], var.shape[1], var.shape[2], var.shape[3]).cuda()
-        #     output = mean + torch.mul(epsilon, var)
 
         output = self.Conv_end(output)
         output = nn.Softmax2d()(output)
@@ -146,14 +135,6 @@ class kernel_extra_mean_var(nn.Module):
 
         return output, kernel, mean, var
 
-
-if __name__ == '__main__':
-    input1 = torch.rand(2, 3, 128, 128).cuda()
-    net = RCAN(3).cuda()
-    output, kernel = net(input1)
-    # print(net)
-    print(output.size())
-    # print("Total number of paramerters in networks is {}  ".format(sum(x.numel() for x in net.parameters())))
 
 
 

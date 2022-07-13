@@ -19,8 +19,3 @@ def define_G(opt):
         raise NotImplementedError('Generator model [{:s}] not recognized'.format(which_model))
     return netG
 
-
-
-
-
-

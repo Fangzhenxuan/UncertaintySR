@@ -31,8 +31,3 @@ class BlindNet(nn.Module):
 
 
 
-if __name__ == '__main__':
-    model = BlindNet().cuda()
-    print("Total number of paramerters in networks is {}  ".format(sum(x.numel() for x in model.parameters())))
-
-
