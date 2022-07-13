@@ -30,55 +30,29 @@ Fig. 2 The overall framework of the proposed KULNet for blind SR.
 
 ## Usage
 ### Download the DGSMP repository
-0. Requirements are Python 3 and PyTorch 1.2.0.
-1. Download this repository via git
+1. Requirements are Python 3 and PyTorch 1.8.0.
+2. Download this repository via git
 ```
-git clone https://github.com/TaoHuang95/DGSMP
+git clone https://github.com/Fangzhenxuan/UncertaintySR
 ```
-or download the [zip file](https://github.com/TaoHuang95/DGSMP/archive/main.zip) manually.
-
-### Download the training data
-1. CAVE:28 channels (https://pan.baidu.com/s/1ue26weBAbn61a7hyT9CDkg) PW:ixoe
-2. KAIST:28 channels (https://pan.baidu.com/s/1LfPqGe0R_tuQjCXC_fALZA) PW:5mmn
+or download the [zip file](https://github.com/Fangzhenxuan/UncertaintySR/archive/main.zip) manually.
 
 
-### Testing 
-1. Testing on simulation data   
-Run **Simulation/Test.py** to reconstruct 10 synthetic datasets ([Ziyi Meng](https://github.com/mengziyi64/TSA-Net)). The results will be saved in 'Simulation/Results/' in the MatFile format.  
+### Testing
+1. Testing on synthetic testsets   
+Run **codes/test.py**. For different settings (noise level, testsets), Modify the corresponding parameters in **codes/options/test.yml** 
 2. Testing on real data   
-Run **Real/Test.py** to reconstruct 5 real datasets ([Ziyi Meng](https://github.com/mengziyi64/TSA-Net)). The results will be saved in 'Real/Results/' in the MatFile format.  
+Run **codes/test_real.py**. 
 
 ### Training 
-1. Training simulation model
-    1) Put hyperspectral datasets (Ground truth) into corrsponding path, i.e., 'Simulation/Data/Training_data/'.
-    2) Run **Simulation/Train.py**.
-2. Training real data model  
-    1) Put hyperspectral datasets (Ground truth) into corrsponding path, i.e., 'Real/Data/Training_data/'.  
-    2) Run **Real/Train.py**.
+Run **codes/train.py**.
+
 
 ## Acknowledgements
-We thank the author of TSA-Net[1] ([Ziyi Meng](https://github.com/mengziyi64/TSA-Net)) for providing simulation data and real data.
+The codes are based on [MANet](https://github.com/JingyunLiang/MANet) [1]. Please also follow their licenses. Thanks for their great works.
 
 ## References
-[1] Ziyi Meng, Jiawei Ma, and Xin Yuan. End-to-end low cost compressive spectral imaging with spatial-spectral self-attention. In Proceedings of the European Conference on
-Computer Vision (ECCV), August 2020.
+[1] Liang, Jingyun, et al. "Mutual affine network for spatially variant kernel estimation in blind image super-resolution." Proceedings of the IEEE/CVF International Conference on Computer Vision. 2021.
 
-## Citation
 
-If you find our work useful for your research, please consider citing the following papers :)
 
-```
-@InProceedings{Huang_2021_CVPR,
-    author    = {Huang, Tao and Dong, Weisheng and Yuan, Xin and Wu, Jinjian and Shi, Guangming},
-    title     = {Deep Gaussian Scale Mixture Prior for Spectral Compressive Imaging},
-    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
-    month     = {June},
-    year      = {2021},
-    pages     = {16216-16225}
-}
-```
-
-## Contact
-Tao Huang, Xidian University, Email: thuang_666@stu.xidian.edu.cn, thuang951223@163.com  
-Weisheng Dong, Xidian University, Email: wsdong@mail.xidian.edu.cn  
-Xin Yuan, Bell Labs, Email: xin_x.yuan@nokia-bell-labs.com

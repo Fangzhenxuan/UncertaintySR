@@ -1,4 +1,4 @@
-name: x2_test
+name: test_x2
 suffix: ~
 model: blind
 distortion: sr

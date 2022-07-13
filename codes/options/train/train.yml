@@ -1,5 +1,5 @@
 #### general settings
-name: 0222_Blind_uncertainty_aniso_x2_DF2K
+name: KULNet_x2
 use_tb_logger: true
 model: blind
 distortion: sr
@@ -14,6 +14,7 @@ train_noise: True
 noise_high: 25
 train_jpeg: False
 jpeg_low: 70
+
 # validation
 sig: 1.6
 sig1: 3.5
@@ -56,10 +57,10 @@ network_G:
 
 #### path
 path:
-  pretrain_model_K: ~ #./experiments/pretrained_models/stage1_uncertainty_x4_latest.pth
+  pretrain_model_K: ~
   pretrain_model_G: ~
   strict_load: false
-  resume_state: ~ #../experiments/001_MANet_aniso_x4_DIV2K_40_stage3/training_state/5000.state
+  resume_state: ~
 
 
 #### training settings: learning rate scheme, loss
@@ -82,10 +83,10 @@ train:
   kernel_weight: 1.0
 
   manual_seed: 0
-  val_freq: !!float 5e3
+  val_freq: !!float 1e3
 
 
 #### logger
 logger:
-  print_freq: 200
+  print_freq: 100
   save_checkpoint_freq: !!float 5e3
