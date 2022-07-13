@@ -20,14 +20,13 @@ optimized through end-to-end training. Extensive experimental results on both sy
 <p align="center">
 <img src="/illustrations/visual.png" width="1200">
 </p>
-Fig. 1 A single shot measurement captured by [1] and 28 reconstructed spectral channels using our proposed method.
+Fig. 1 Visual comparison to other methods.
 
 ## Architecture
 <p align="center">
-<img src="/Images/Fig2.png" width="1200">
+<img src="/illustrations/network.png" width="1200">
 </p>
-Fig. 2 Architecture of the proposed network for hyperspectral image reconstruction. The architectures of (a) the overall network, (b)
-the measurement matrix, (c) the transposed version of the measurement matrix, (d) the weight generator, and (e) the filter generator.
+Fig. 2 The overall framework of the proposed KULNet for blind SR.
 
 ## Usage
 ### Download the DGSMP repository
