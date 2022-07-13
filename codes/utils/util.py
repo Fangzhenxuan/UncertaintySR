@@ -907,32 +907,6 @@ def calculate_kernel_psnr(img1, img2, border=0):
         return float('inf')
     return 20 * math.log10(1.0 / math.sqrt(mse))
 
-def calculate_kernel_MAE(img1, img2):
-    # img1 and img2 have range [0, 255]
-    img1 = img1.astype(np.float64)
-    img2 = img2.astype(np.float64)
-    mae = np.mean(np.abs(img1*255 - img2*255))
-    return mae
-
-def calculate_kernel_ssim(img1, img2):
-    '''calculate SSIM
-    the same outputs as MATLAB's
-    img1, img2: [0, 255]
-    '''
-    if not img1.shape == img2.shape:
-        raise ValueError('Input images must have the same dimensions.')
-    if img1.ndim == 2:
-        return ssim(img1, img2)
-    elif img1.ndim == 3:
-        if img1.shape[2] == 3:
-            ssims = []
-            for i in range(3):
-                ssims.append(ssim(img1[:,:,i], img2[:,:,i]))
-            return np.array(ssims).mean()
-        elif img1.shape[2] == 1:
-            return ssim(np.squeeze(img1), np.squeeze(img2))
-    else:
-        raise ValueError('Wrong input image dimensions.')
 
 def calculate_psnr(img1, img2):
     # img1 and img2 have range [0, 255]
@@ -1126,29 +1100,6 @@ def compute_RF_numerical(net, img_np, re_init_para=False):
     RF=[np.max(idx)-np.min(idx)+1 for idx in idx_nonzeros]
 
     return RF
-
-
-def plot_kernel(out_k_np, savepath, gt_k_np=None):
-    plt.clf()
-    if gt_k_np is None:
-        ax = plt.subplot(111)
-        im = ax.imshow(out_k_np, vmin=out_k_np.min(), vmax=out_k_np.max())
-        plt.colorbar(im, ax=ax)
-    else:
-
-        ax = plt.subplot(121)
-        im = ax.imshow(gt_k_np, vmin=gt_k_np.min(), vmax=gt_k_np.max(), cmap='gray', interpolation='nearest')
-        plt.colorbar(im, ax=ax)
-        ax.set_title('GT Kernel')
-
-        ax = plt.subplot(122)
-        # im = ax.imshow(out_k_np, vmin=gt_k_np.min(), vmax=gt_k_np.max(), cmap='gray', interpolation='nearest')
-        im = ax.imshow(out_k_np, vmin=out_k_np.min(), vmax=out_k_np.max(), cmap='gray', interpolation='nearest')
-        plt.colorbar(im, ax=ax)
-        ax.set_title('Kernel PSNR: {:.2f}'.format(calculate_kernel_psnr(out_k_np, gt_k_np)))
-
-    plt.show()
-    plt.savefig(savepath)
 
 
 

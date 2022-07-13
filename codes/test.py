@@ -148,10 +148,6 @@ for n_k in range(9):
                 est_ker = util.tensor2img(visuals['KE'], np.float32)
                 est_ker_sv = None
 
-            if real_image:
-                util.plot_kernel(est_ker, save_ker_path)
-                if args.save_kernel and est_ker_sv is not None:
-                    np.savez(save_ker_SV_path, sr_img=sr_img, est_ker_sv=est_ker_sv, gt_ker=0)
 
             # calculate PSNR for LR
             gt_img_lr = util.tensor2img(visuals['LQ'])
@@ -182,7 +178,6 @@ for n_k in range(9):
                 if not gt_ker.shape == est_ker.shape:
                     gt_ker = est_ker
 
-                util.plot_kernel(est_ker, save_ker_path, gt_ker)
                 if args.save_kernel and est_ker_sv is not None:
                     np.savez(save_ker_SV_path, sr_img=sr_img, est_ker_sv=est_ker_sv, gt_ker=gt_ker)
                 psnr_k = util.calculate_kernel_psnr(est_ker, gt_ker)
@@ -252,7 +247,7 @@ for n_k in range(9):
     psnr_ac += ave_psnr_y
 
 
-print('Average PSNR_Y among all blur kernels: %.2f'%(psnr_ac/9))
+print('Average PSNR: %.2f'%(psnr_ac/9))
 
 
 
