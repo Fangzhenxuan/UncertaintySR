@@ -1,4 +1,4 @@
-name: 0306_aniso_x4_test_for_real
+name: test_real
 suffix: ~
 model: blind
 distortion: sr
@@ -7,37 +7,23 @@ crop_border: ~
 gpu_ids: [0]
 kernel_size: 21
 
-sig_min: 0.2
-sig_max: 4
-sig: 1.6
-
 sig1:  [2.0, 2.0, 3.5, 3.5, 3.5, 4.0, 4.0, 4.0, 4.0]
 sig2:  [0.5, 1.0, 1.5, 2.0, 2.0, 1.5, 2.0, 3.0, 4.0]
 theta: [0  , 10 , 30 , 45 , 90 , 120, 135, 165, 180]  # range[0, 180]
 test_noise: True
 noise: 0
 
-
 rate_iso: 0 # 1 for iso, 0 for aniso
 sv_mode: 0 # 0 for spatially invariant kernel
 
-test_jpeg: False
-jpeg: 70
-cal_lr_psnr: False # calculate lr pixel consumes huge memory
-
-
 datasets:
-  # example1: HR input only (generating LR on-the-fly)
-
-  # example2: LR input only (no HR)
-  test_1:
+  test:
     name: real
     mode: LQ
     dataroot_GT: ~
-    dataroot_LQ: ../datasets/real
-    scale: 3
+    dataroot_LQ: ../datasets/historical
+    scale: 4
     kernel_size: 21
-
 
 
 network_G:
@@ -46,6 +32,6 @@ network_G:
 
 path:
   strict_load: true
-  pretrain_model_G: ../experiments/pretrained_models/0222_aniso_x4/370000_G.pth
+  pretrain_model_G: ../experiments/pretrained_models/x4/latest_G.pth
 
 
