@@ -10,8 +10,8 @@ Multi-Stage Blind Image Super-Resolution** (***ECCV (2022)***) by [Zhenxuan Fang
 3. [Usage](#Usage)
 4. [Acknowledgements](#Acknowledgements)
 5. [References](#References)
-6. [Citation](#Citation)
-7. [Contact](#Contact)
+
+
 
 ## Overview
 We formulate the blind SR problem as a joint maximum a posteriori probability (MAP) problem for estimating the unknown kernel and high-resolution image simultaneously. To improve the robustness of the kernel estimation network, we introduce uncertainty learning in the latent space instead of using deterministic feature maps. Then we propose a novel multi-stage SR network by unfolding the MAP estimator with the learned LSM prior and the estimated kernel. Both the scale prior coefficient and the local means of the LSM model are estimated through deep convolutional neural networks. All parameters of the MAP estimation algorithm and the DCNN parameters are jointly
