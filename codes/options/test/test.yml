@@ -2,7 +2,7 @@ name: 0712_x4_test
 suffix: ~
 model: blind
 distortion: sr
-scale: 2
+scale: 3
 crop_border: ~
 gpu_ids: [0]
 kernel_size: 21
@@ -12,6 +12,7 @@ sig2:  [0.5, 1.0, 1.5, 2.0, 2.0, 1.5, 2.0, 3.0, 4.0]
 theta: [0  , 10 , 30 , 45 , 90 , 120, 135, 165, 180]  # range[0, 180]
 test_noise: True
 noise: 20
+
 rate_iso: 0 # 1 for iso, 0 for aniso
 sv_mode: 0 # 0 for spatially invariant kernel
 
@@ -28,6 +29,6 @@ network_G:
 
 path:
   strict_load: true
-  pretrain_model_G: ../experiments/pretrained_models/x2/latest_G.pth
+  pretrain_model_G: ../experiments/pretrained_models/x3/latest_G.pth
 
 

@@ -2,7 +2,6 @@ import torch
 import torch.nn as nn
 from torch.nn.parameter import Parameter
 import torch.nn.functional as F
-from utils.util import show_image, save_image
 
 
 class Resblock(nn.Module):

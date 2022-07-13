@@ -110,11 +110,9 @@ for test_loader in test_loaders:
         suffix = opt['suffix']
         if suffix:
             save_img_path = os.path.join(dataset_dir, img_name + suffix + '.png')
-            save_ker_path = os.path.join(dataset_dir, '0kernel_{:s}{}.png'.format(img_name, suffix))
             save_ker_SV_path = os.path.join(dataset_dir, 'npz', img_name + suffix + '.npz')
         else:
             save_img_path = os.path.join(dataset_dir, img_name + '.png')
-            save_ker_path = os.path.join(dataset_dir, '0kernel_{:s}.png'.format(img_name))
             save_ker_SV_path = os.path.join(dataset_dir, 'npz', img_name + '.npz')
         util.save_img(sr_img, save_img_path)
         if args.save_kernel:
@@ -129,7 +127,6 @@ for test_loader in test_loaders:
             est_ker_sv = None
 
         if real_image:
-            util.plot_kernel(est_ker, save_ker_path)
             if args.save_kernel and est_ker_sv is not None:
                 np.savez(save_ker_SV_path, sr_img=sr_img, est_ker_sv=est_ker_sv, gt_ker=0)
 
@@ -162,7 +159,6 @@ for test_loader in test_loaders:
             if not gt_ker.shape == est_ker.shape:
                 gt_ker = est_ker
 
-            util.plot_kernel(est_ker, save_ker_path, gt_ker)
             if args.save_kernel and est_ker_sv is not None:
                 np.savez(save_ker_SV_path, sr_img=sr_img, est_ker_sv=est_ker_sv, gt_ker=gt_ker)
             psnr_k = util.calculate_kernel_psnr(est_ker, gt_ker)
