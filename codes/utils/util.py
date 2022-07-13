@@ -1127,6 +1127,7 @@ def compute_RF_numerical(net, img_np, re_init_para=False):
 
     return RF
 
+
 def plot_kernel(out_k_np, savepath, gt_k_np=None):
     plt.clf()
     if gt_k_np is None:
@@ -1150,24 +1151,6 @@ def plot_kernel(out_k_np, savepath, gt_k_np=None):
     plt.savefig(savepath)
 
 
-def show_image(tensor):
-    # 从tensor看图像
-    tensor = torch.clamp(tensor, 0, 1)
-    if len(tensor.shape)==3:
-        tensor = tensor.unsqueeze(1)
-    kan = tensor[0:1, :, :, :].squeeze(0).squeeze(0).cpu()
-    kan = T.ToPILImage()(kan)
-    kan.show()
 
 
-def save_image(tensor, path):
-    '''
-    input1: tensor[B, C, H, W] or tensor[C, H, W]   (0~1)
-    input2: tensor[B, C, H, W] or tensor[C, H, W]   (0~1)
-    return: image
-    '''
-    tensor = torch.clamp(tensor, 0, 1)
-    if len(tensor.size()) == 4:
-        tensor = tensor.permute(0, 2, 3, 1).squeeze(0)
-    image = np.array(tensor.detach().cpu() * 255).astype('uint8')
-    io.imsave(path, image)
+
