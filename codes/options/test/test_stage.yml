@@ -1,8 +1,8 @@
-name: 0524_aniso_x4_test_DIV2KRK
+name: 0712_x4_test
 suffix: ~
 model: blind
 distortion: sr
-scale: 4
+scale: 2
 crop_border: ~
 gpu_ids: [0]
 kernel_size: 21
@@ -18,7 +18,7 @@ theta: [0  , 10 , 30 , 45 , 90 , 120, 135, 165, 180]  # range[0, 180]
 #sig2:  [4.0]
 #theta: [180]  # range[0, 180]
 test_noise: True
-noise: 0
+noise: 20
 
 
 rate_iso: 0 # 1 for iso, 0 for aniso
@@ -31,11 +31,11 @@ cal_lr_psnr: False # calculate lr pixel consumes huge memory
 
 datasets:
   # example1: HR input only (generating LR on-the-fly)
-#  test_1:
-#    name: Set5
-#    mode: GT
-#    dataroot_GT: ../datasets/Set5/HR
-#    dataroot_LQ: ~
+  test_1:
+    name: Set5
+    mode: GT
+    dataroot_GT: ../datasets/Set5/HR
+    dataroot_LQ: ~
 
   # example2: LR input only (no HR)
 #  test_2:
@@ -47,11 +47,11 @@ datasets:
 #    kernel_size: 21
 
   # example3: HR-LR pairs
-  test_3:
-    name: DIV2KRK
-    mode: GTLQ
-    dataroot_GT: ../datasets/DIV2KRK/gt
-    dataroot_LQ: ../datasets/DIV2KRK/lr_x4
+#  test_3:
+#    name: Set5
+#    mode: GTLQ
+#    dataroot_GT: ../datasets/KOALA/Set5/HR
+#    dataroot_LQ: ../datasets/KOALA/Set5/LR/X4
 
 
 
@@ -61,6 +61,6 @@ network_G:
 
 path:
   strict_load: true
-  pretrain_model_G: ../experiments/pretrained_models/0222_aniso_x4/370000_G.pth
+  pretrain_model_G: ../experiments/pretrained_models/0222_aniso_x2/450000_G.pth
 
 

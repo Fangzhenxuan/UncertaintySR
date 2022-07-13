@@ -15,8 +15,6 @@ def define_G(opt):
 
     if which_model == 'BlindNet':
         netG = BlindNet_arch.BlindNet(scale=opt['scale'], kernel_size=opt['kernel_size'])
-    elif which_model == 'BlindNet_nouncer':
-        netG = BlindNet_arch.BlindNet_nouncer(scale=opt['scale'], kernel_size=opt['kernel_size'])
     else:
         raise NotImplementedError('Generator model [{:s}] not recognized'.format(which_model))
     return netG
