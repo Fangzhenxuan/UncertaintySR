@@ -40,13 +40,13 @@ or download the [zip file](https://github.com/Fangzhenxuan/UncertaintySR/archive
 
 ### Testing
 1. Testing on synthetic testsets   
-Run **codes/test.py**. For different settings (noise level, testsets), modify the corresponding parameters in **codes/options/test.yml** 
+Run **codes/test.py**. For different test settings (scale, noise level, testsets, pretrained model), modify the corresponding parameters in **codes/options/test.yml** 
 2. Testing on real data   
 Run **codes/test_real.py**. 
 
 ### Training 
 1. Put 800 training images of DIV2K and 2650 training images of Flickr2K together in **datasets/DF2K/HR**
-2. Run **codes/train.py**.
+2. Run **codes/train.py**. For different train settings (scale, GT patch size), modify the corresponding parameters in **codes/options/train.yml**
 
 
 ## Acknowledgements

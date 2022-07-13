@@ -39,7 +39,7 @@ datasets:
     use_shuffle: true
     n_workers: 8
     batch_size: 16
-    GT_size: 128
+    GT_size: 96    # 48*scale
     LR_size: ~
     use_flip: true
     use_rot: true
