@@ -14,7 +14,7 @@ from models import create_model
 
 #### options
 parser = argparse.ArgumentParser()
-parser.add_argument('--opt', type=str, default='options/test/test_for_real.yml', help='Path to options YMAL file.')
+parser.add_argument('--opt', type=str, default='options/test/test_real.yml', help='Path to options YMAL file.')
 parser.add_argument('--save_kernel', action='store_true', default=False, help='Save Kernel Esimtation.')
 args = parser.parse_args()
 opt = option.parse(args.opt, is_train=False)

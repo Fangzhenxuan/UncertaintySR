@@ -19,7 +19,7 @@ for n_k in range(9):
     print('For blur kernel set %d'%n_k)
     #### options
     parser = argparse.ArgumentParser()
-    parser.add_argument('--opt', type=str, default='options/test/test_stage.yml', help='Path to options YMAL file.')
+    parser.add_argument('--opt', type=str, default='options/test/test.yml', help='Path to options YMAL file.')
     parser.add_argument('--save_kernel', action='store_true', default=False, help='Save Kernel Esimtation.')
     args = parser.parse_args()
     opt = option.parse(args.opt, is_train=False)
