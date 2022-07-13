@@ -260,12 +260,6 @@ class DLSM(nn.Module):
             elif i == 3:
                 feature_list.append(fea)
                 fufea = self.Den_con4(torch.cat(feature_list, 1))
-            # elif i == 4:
-            #     feature_list.append(fea)
-            #     fufea = self.Den_con5(torch.cat(feature_list, 1))
-            # elif i == 5:
-            #     feature_list.append(fea)
-            #     fufea = self.Den_con6(torch.cat(feature_list, 1))
 
             B, C, h, w = fufea.size()
             bottom = (16 - h % 16) % 16
@@ -281,7 +275,6 @@ class DLSM(nn.Module):
 
             # Reconstructing
             Xt = self.recon(Res, W, U, i)
-            # save_image(Xt, '../stage_image/stage%d.png'%(i+1))
 
         return Xt
 
