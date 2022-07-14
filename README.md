@@ -50,7 +50,7 @@ Run **codes/test_real.py**.
 
 
 ## Acknowledgements
-The codes are based on [MANet](https://github.com/JingyunLiang/MANet) [1]. Please also follow their licenses. Thanks for their great works.
+The codes are built on [MANet](https://github.com/JingyunLiang/MANet) [1]. We thank the authors for sharing their codes.
 
 ## References
 [1] Liang, Jingyun, et al. "Mutual affine network for spatially variant kernel estimation in blind image super-resolution." Proceedings of the IEEE/CVF International Conference on Computer Vision. 2021.

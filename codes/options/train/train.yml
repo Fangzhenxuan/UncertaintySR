@@ -3,7 +3,7 @@ name: KULNet_x2
 use_tb_logger: true
 model: blind
 distortion: sr
-scale: 2
+scale: 2   # 2, 3, 4
 gpu_ids: [0]
 kernel_size: 21
 
