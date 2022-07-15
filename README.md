@@ -1,6 +1,6 @@
 # Uncertainty Learning in Kernel Estimation for Multi-Stage Blind Image Super-Resolution
 This repository contains the Pytorch codes for paper **Uncertainty Learning in Kernel Estimation for
-Multi-Stage Blind Image Super-Resolution** (***ECCV (2022)***) by [Zhenxuan Fang](https://github.com/Fangzhenxuan), [Weisheng Dong](https://see.xidian.edu.cn/faculty/wsdong/), et al.  
+Multi-Stage Blind Image Super-Resolution** by [Zhenxuan Fang](https://github.com/Fangzhenxuan), [Weisheng Dong](https://see.xidian.edu.cn/faculty/wsdong/), et al.  
 
 
 
