@@ -30,7 +30,7 @@ Fig. 2 The overall framework of the proposed KULNet for blind SR.
 
 ## Usage
 ### Download the repository
-1. Requirements are Python 3 and PyTorch 1.8.0.
+1. Requirements are Python 3.7 and PyTorch 1.8.0.
 2. Download this repository via git
 ```
 git clone https://github.com/Fangzhenxuan/UncertaintySR
