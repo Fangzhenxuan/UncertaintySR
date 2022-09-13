@@ -2,7 +2,7 @@ name: test_x2
 suffix: ~
 model: blind
 distortion: sr
-scale: 2
+scale: 4
 crop_border: ~
 gpu_ids: [0]
 kernel_size: 21
@@ -19,9 +19,9 @@ sv_mode: 0 # 0 for spatially invariant kernel
 datasets:
   # example1: HR input only (generating LR on-the-fly)
   test:
-    name: Set14
+    name: Set5
     mode: GT
-    dataroot_GT: ../datasets/Set14/HR
+    dataroot_GT: ../datasets/Set5/HR
     dataroot_LQ: ~
 
 network_G:
@@ -29,6 +29,6 @@ network_G:
 
 path:
   strict_load: true
-  pretrain_model_G: ../experiments/pretrained_models/x2/latest_G.pth
+  pretrain_model_G: ../experiments/pretrained_models/x4/latest_G.pth
 
 
