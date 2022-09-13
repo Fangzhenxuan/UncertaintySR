@@ -1,5 +1,5 @@
 #### training settings
-name: KULNet_x2
+name: KULNet_train_x2
 use_tb_logger: true
 model: blind
 distortion: sr
