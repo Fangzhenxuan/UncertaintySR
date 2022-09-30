@@ -100,8 +100,6 @@ for n_k in range(9):
                 LR_img, LR_n_img, ker_map, kernel = test_data['LQ'], test_data['LQ'], torch.ones(1, 1, 1), \
                                                     torch.ones(1, 1, opt['kernel_size'], opt['kernel_size'])
 
-            # util.save_image(LR_n_img, '../produced_testsets/Set5/X%d/LR/noise%d/aniso_%.1f_%.1f_%d/img_%03d.png'%(opt['scale'],opt['noise'],sigma1, sigma2, opt['theta'][n_k], ntest))
-
             model.feed_data(test_data, LR_img, LR_n_img, ker_map, kernel)
             model.test()
 
@@ -140,11 +138,6 @@ for n_k in range(9):
                 est_ker = util.tensor2img(visuals['KE'][300, :, :], np.float32)
                 est_ker_sv = visuals['KE'].float().cpu().numpy().astype(np.float32)
             else:
-                kan_kernel = visuals['KE']
-                kan_kernel = kan_kernel[5:15, 5:15]
-                kan_kernel = kan_kernel / torch.max(kan_kernel)
-                kan_kernel = F.interpolate(kan_kernel.unsqueeze(0).unsqueeze(0), scale_factor=4, mode='bicubic')
-                # util.show_image(kan_kernel)
                 est_ker = util.tensor2img(visuals['KE'], np.float32)
                 est_ker_sv = None
 

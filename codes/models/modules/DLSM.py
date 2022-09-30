@@ -134,23 +134,18 @@ class DLSM(nn.Module):
         self.Den_con2 = nn.Conv2d(32 * 2, 32, kernel_size=1, stride=1, padding=0)
         self.Den_con3 = nn.Conv2d(32 * 3, 32, kernel_size=1, stride=1, padding=0)
         self.Den_con4 = nn.Conv2d(32 * 4, 32, kernel_size=1, stride=1, padding=0)
-        # self.Den_con5 = nn.Conv2d(32 * 5, 32, kernel_size=1, stride=1, padding=0)
-        # self.Den_con6 = nn.Conv2d(32 * 6, 32, kernel_size=1, stride=1, padding=0)
 
         self.delta_0 = Parameter(torch.ones(1), requires_grad=True)
         self.delta_1 = Parameter(torch.ones(1), requires_grad=True)
         self.delta_2 = Parameter(torch.ones(1), requires_grad=True)
         self.delta_3 = Parameter(torch.ones(1), requires_grad=True)
-        # self.delta_4 = Parameter(torch.ones(1), requires_grad=True)
-        # self.delta_5 = Parameter(torch.ones(1), requires_grad=True)
 
         self._initialize_weights()
         torch.nn.init.normal_(self.delta_0, mean=0.1, std=0.01)
         torch.nn.init.normal_(self.delta_1, mean=0.1, std=0.01)
         torch.nn.init.normal_(self.delta_2, mean=0.1, std=0.01)
         torch.nn.init.normal_(self.delta_3, mean=0.1, std=0.01)
-        # torch.nn.init.normal_(self.delta_4, mean=0.1, std=0.01)
-        # torch.nn.init.normal_(self.delta_5, mean=0.1, std=0.01)
+
 
     def _initialize_weights(self):
         for m in self.modules():
@@ -170,10 +165,6 @@ class DLSM(nn.Module):
             delta = self.delta_2
         elif i == 3:
             delta = self.delta_3
-        # elif i == 4:
-        #     delta = self.delta_4
-        # elif i == 5:
-        #     delta = self.delta_5
 
         w = w *delta
 

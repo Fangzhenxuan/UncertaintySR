@@ -163,27 +163,6 @@ class B_Model(BaseModel):
                 l_all += l_kl
                 self.log_dict['l_kl'] = l_kl.item()
 
-            # # kernel loss
-            # if self.cri_ker is not None:
-            #     self.fake_SR, self.fake_K, mean, log_var = self.netG(self.var_LN, self.real_K)
-            #     # times 1e4 since kernel pixel values are very small
-            #     l_ker = self.l_ker_w * self.cri_ker(self.fake_K * 10000,
-            #                                         self.real_K.unsqueeze(1).expand(-1, self.fake_K.size(1), -1,
-            #                                                                         -1) * 10000) / self.fake_K.size(1)
-            #     l_all += l_ker
-            #     self.log_dict['l_ker'] = l_ker.item()
-            #
-            #     # kl loss
-            #     l_kl = -0.5 * (torch.ones_like(mean) + 2*log_var - torch.mul(mean, mean) - torch.exp(2*log_var))
-            #     l_kl = 0.001 * torch.mean(l_kl)
-            #     l_all += l_kl
-            #     self.log_dict['l_kl'] = l_kl.item()
-            #
-            #     # l_kl = -0.5 * (torch.ones_like(mean) + torch.log(torch.mul(var, var)) - torch.mul(mean,mean) - torch.mul(var, var))
-            #     # l_kl = 0.01 * torch.mean(l_kl)
-            #     # l_all += l_kl
-            #     # self.log_dict['l_kl'] = l_kl.item()
-
             # lr loss
             if self.cri_pix_lr is not None:
                 self.fake_SR, self.fake_K, mean, var = self.netG(self.var_LN, self.real_K)
@@ -196,9 +175,7 @@ class B_Model(BaseModel):
                 l_kl = -0.5 * (torch.ones_like(mean) + 2 * log_var - torch.mul(mean, mean) - torch.exp(2 * log_var))
                 l_kl = 0.0001 * torch.mean(l_kl)
                 l_all += l_kl
-                # l_kl = -0.5 * (torch.ones_like(mean) + torch.log(torch.mul(var, var)) - torch.mul(mean, mean) - torch.mul(var, var))
-                # l_kl = 0.01 * torch.mean(l_kl)
-                # l_all += l_kl
+
                 self.log_dict['l_kl'] = l_kl.item()
 
             else:
