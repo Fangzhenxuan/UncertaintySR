@@ -18,7 +18,6 @@ rate_iso: 0 # 1 for iso, 0 for aniso
 sv_mode: 0 # 0 for spatially invariant kernel
 
 datasets:
-  # example1: HR input only (generating LR on-the-fly)
   test:
     name: Set5
     mode: GT
