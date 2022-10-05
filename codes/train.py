@@ -240,7 +240,7 @@ def main():
                     else:
                         est_ker = util.tensor2img(visuals['KE'], np.float32)
                     gt_ker = util.tensor2img(visuals['K'], np.float32)
-                    util.plot_kernel(est_ker, save_ker_path, gt_ker)
+
                     avg_psnr_k += util.calculate_kernel_psnr(est_ker, gt_ker)
 
                     # calculate PSNR for LR
